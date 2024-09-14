@@ -15,7 +15,7 @@ export default function Home() {
       <div>
         List
         <ul>
-          <Link href="/workbook?type=read&id=1">
+          <Link href="/workbook?type=update&id=1">
             <li>mock item 1번</li>
           </Link>
         </ul>
