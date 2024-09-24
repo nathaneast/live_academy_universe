@@ -1,18 +1,23 @@
-import { ReactNode } from 'react';
-import { FormProvider, useForm } from "react-hook-form";
+"use client";
+
+import { ReactNode } from "react";
+import { FormProvider, useForm, useWatch } from "react-hook-form";
 
 type FormProviderWrapperProps = {
   children: ReactNode;
-  initialValues?: Record<string, any>;
+  defaultValues?: Record<string, any>;
 };
 
-const FormProviderWrapper = ({ children, initialValues = {} }: FormProviderWrapperProps) => {
-  const methods = useForm({ defaultValues: initialValues });
-  return (
-    <FormProvider {...methods}>
-      {children}  
-    </FormProvider>  
-  )
-}
+const FormProviderWrapper = ({
+  children,
+  defaultValues = {},
+}: FormProviderWrapperProps) => {
+  const methods = useForm({ defaultValues });
+  const watchedValues = useWatch({ control: methods.control });
+
+  console.log(watchedValues, "watchedValues");
+
+  return <FormProvider {...methods}>{children}</FormProvider>;
+};
 
 export default FormProviderWrapper;

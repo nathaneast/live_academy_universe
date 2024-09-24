@@ -1,11 +1,9 @@
 "use client";
 
-import { useState } from "react";
-// import { useWorkBookStore } from "../_store/workBookstore";
+import { useFormContext } from "react-hook-form";
 
 const Video = () => {
-  const [url, setUrl] = useState("");
-  // const addWorkBookItem = useWorkBookStore((state) => state.addWorkBookItem);
+  const { register } = useFormContext();
 
   // const handleAddLecture = () => {
   //   if (url) {
@@ -20,8 +18,7 @@ const Video = () => {
         <span>유튜브 url 입력</span>
         <input
           type="text"
-          value={url}
-          onChange={(e) => setUrl(e.target.value)}
+          {...register("videoUrl", { required: "URL은 필수입니다." })}
         />
         <button>강의 등록</button>
       </div>

@@ -16,13 +16,13 @@ const WorkbookPage = ({ searchParams }: WorkbookPageProps) => {
   /**
    * TODO:
    * update 모드: fetch -> 하위 컴포넌트에 기본 값 전달
-   * create: 하위 컴포넌트 그냥 렌더링
+   * create: 하위 컴포넌트 그냥 렌더
    */
 
   // onSubmit 함수 생성
 
   return (
-    <FormProviderWrapper initialValues={{}}>
+    <FormProviderWrapper defaultValues={{}}>
       <div>
         <Video />
         <DictationForm />

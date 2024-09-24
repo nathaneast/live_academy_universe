@@ -2,6 +2,7 @@ import Link from "next/link";
 
 export default function Home() {
   // TODO: fetch
+  // 목록 데이터 렌더링
 
   return (
     <div>
