@@ -3,14 +3,17 @@
 import { useFormContext } from "react-hook-form";
 
 const Video = () => {
-  const { register } = useFormContext();
+  const { register, setValue, getValues } = useFormContext();
 
-  // const handleAddLecture = () => {
-  //   if (url) {
-  //     // 실제로는 여기서 유튜브 API를 사용하여 썸네일을 가져와야 합니다.
-  //     addWorkBookItem("mock_image_url");
-  //   }
-  // };
+  const handleAddWorkBookCard = () => {
+    const currentWorkBookCards = getValues("workBookCards") || [];
+    const newWorkBookCard = {
+      videoUrl: "mock_add_url",
+      memo: "mock_add_memo",
+    };
+
+    setValue("workBookCards", [...currentWorkBookCards, newWorkBookCard]);
+  };
 
   return (
     <div>
@@ -21,6 +24,7 @@ const Video = () => {
           {...register("videoUrl", { required: "URL은 필수입니다." })}
         />
         <button>강의 등록</button>
+        <button onClick={handleAddWorkBookCard}>mock_card_add</button>
       </div>
       <div>비디오 플레이어</div>
     </div>

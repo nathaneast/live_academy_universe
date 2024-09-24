@@ -1,6 +1,7 @@
 import FormProviderWrapper from "./_store/FormProviderWrapper";
 import Video from "./_formComponents/Video";
 import DictationForm from "./_formComponents/DictationForm";
+import WorkBookCardList from "./_formComponents/WorkBookCardList";
 
 interface WorkbookPageProps {
   searchParams: {
@@ -19,14 +20,15 @@ const WorkbookPage = ({ searchParams }: WorkbookPageProps) => {
    * create: 하위 컴포넌트 그냥 렌더
    */
 
-  // onSubmit 함수 생성
+  // TODO: onSubmit 함수 생성
+  // 최상위 폼태그 랩핑
 
   return (
     <FormProviderWrapper defaultValues={{}}>
       <div>
         <Video />
         <DictationForm />
-        <div>워크북 카드</div>
+        <WorkBookCardList />
         <div>gpt 작문연습</div>
       </div>
     </FormProviderWrapper>
