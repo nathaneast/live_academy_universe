@@ -26,8 +26,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased px-8`}
       >
+        <header className="text-xl font-bold gap-2 flex pt-2">
+          Live Academy Universe
+        </header>
         {children}
       </body>
     </html>
