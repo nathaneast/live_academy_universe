@@ -1,14 +1,16 @@
 import type { Metadata } from "next";
+import Link from "next/link";
+
 import localFont from "next/font/local";
-import "./globals.css";
+import "../styles/globals.css";
 
 const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
+  src: "../assets/fonts/GeistVF.woff", // 이제 src/assets/fonts를 참조합니다.
   variable: "--font-geist-sans",
   weight: "100 900",
 });
 const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
+  src: "../assets/fonts/GeistMonoVF.woff", // 이제 src/assets/fonts를 참조합니다.
   variable: "--font-geist-mono",
   weight: "100 900",
 });
@@ -28,8 +30,8 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased px-8`}
       >
-        <header className="text-xl font-bold gap-2 flex pt-2">
-          Live Academy Universe
+        <header className="text-xl font-bold gap-2 flex pt-4 pb-6">
+          <Link href="/">Live Academy Universe</Link>
         </header>
         {children}
       </body>

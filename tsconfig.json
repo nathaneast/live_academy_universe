@@ -17,6 +17,7 @@
         "name": "next"
       }
     ],
+    "baseUrl": "src", // 기본 경로를 src로 설정
     "paths": {
       "@/*": ["./src/*"]
     }
