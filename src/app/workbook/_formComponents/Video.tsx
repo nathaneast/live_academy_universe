@@ -1,6 +1,8 @@
 "use client";
 
+import { useState } from "react";
 import { useFormContext } from "react-hook-form";
+
 import { Button } from "@/components/ui/button";
 import {
   FormField,
@@ -8,27 +10,36 @@ import {
   FormLabel,
   FormControl,
   FormMessage,
-} from "@/components/ui/form"; // 필요한 모듈 추가
+} from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 
 const Video = () => {
-  const { control, register, setValue, getValues } = useFormContext();
+  const { control, register, getValues } = useFormContext();
+  const [renderVideoUrl, setRenderVideoUrl] = useState("");
 
-  const handleAddWorkBookCard = () => {
-    const currentWorkBookCards = getValues("workBookCards") || [];
-    const newWorkBookCard = {
-      videoUrl: "mock_add_url",
-      memo: "mock_add_memo",
-    };
+  const addRenderVideoUrl = () => {
+    const videoUrl = getValues("videoUrl");
 
-    setValue("workBookCards", [...currentWorkBookCards, newWorkBookCard]);
+    if (!videoUrl) {
+      alert("비디오 URL을 입력해주세요.");
+      return;
+    }
+
+    const urlParams = new URLSearchParams(videoUrl.split("?")[1]);
+    const videoId = urlParams.get("v");
+
+    if (videoId) {
+      setRenderVideoUrl(videoId);
+    } else {
+      alert("유효한 비디오 URL이 아닙니다.");
+    }
   };
 
   return (
-    <section>
-      <div>
+    <section className="flex flex-col gap-4">
+      {/* <div>
         <Button onClick={handleAddWorkBookCard}>mock_card_add</Button>
-      </div>
+      </div> */}
 
       <div>
         <FormField
@@ -44,7 +55,7 @@ const Video = () => {
                     {...field}
                     {...register("videoUrl", { required: "URL은 필수입니다." })} // 유효성 검사 추가
                   />
-                  <Button>강의 등록</Button>
+                  <Button onClick={addRenderVideoUrl}>강의 등록</Button>
                 </div>
               </FormControl>
               <FormMessage />
@@ -53,7 +64,16 @@ const Video = () => {
         />
       </div>
 
-      <div>비디오 플레이어</div>
+      <div>
+        <iframe
+          width="600"
+          height="400"
+          src={`https://www.youtube.com/embed/${renderVideoUrl}`} // 유튜브 embed URL로 변경
+          title="YouTube video player"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+        />
+      </div>
     </section>
   );
 };
