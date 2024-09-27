@@ -21,7 +21,11 @@ const FormProviderWrapper = ({
 
   console.log(watchedValues, "watchedValues");
 
-  return <FormProvider {...methods}>{children}</FormProvider>;
+  return (
+    <FormProvider {...methods}>
+      <div>{children}</div>
+    </FormProvider>
+  );
 };
 
 export default FormProviderWrapper;

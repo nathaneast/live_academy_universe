@@ -1,6 +1,7 @@
 "use client";
 
 import { useFormContext } from "react-hook-form";
+import { Button } from "components/ui/button";
 
 const Video = () => {
   const { register, setValue, getValues } = useFormContext();
@@ -16,18 +17,19 @@ const Video = () => {
   };
 
   return (
-    <div>
+    <section>
       <div>
         <span>유튜브 url 입력</span>
         <input
           type="text"
           {...register("videoUrl", { required: "URL은 필수입니다." })}
         />
-        <button>강의 등록</button>
-        <button onClick={handleAddWorkBookCard}>mock_card_add</button>
+        <Button>강의 등록</Button>
+        <Button onClick={handleAddWorkBookCard}>mock_card_add</Button>
       </div>
+
       <div>비디오 플레이어</div>
-    </div>
+    </section>
   );
 };
 

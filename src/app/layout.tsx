@@ -2,15 +2,15 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 import localFont from "next/font/local";
-import "../styles/globals.css";
+import "@/styles/globals.css";
 
 const geistSans = localFont({
-  src: "../assets/fonts/GeistVF.woff", // 이제 src/assets/fonts를 참조합니다.
+  src: "../assets/fonts/GeistVF.woff",
   variable: "--font-geist-sans",
   weight: "100 900",
 });
 const geistMono = localFont({
-  src: "../assets/fonts/GeistMonoVF.woff", // 이제 src/assets/fonts를 참조합니다.
+  src: "../assets/fonts/GeistMonoVF.woff",
   variable: "--font-geist-mono",
   weight: "100 900",
 });

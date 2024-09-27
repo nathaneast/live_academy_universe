@@ -25,12 +25,10 @@ const WorkbookPage = ({ searchParams }: WorkbookPageProps) => {
 
   return (
     <FormProviderWrapper defaultValues={{}}>
-      <div>
-        <Video />
-        <DictationForm />
-        <WorkBookCardList />
-        <div>gpt 작문연습</div>
-      </div>
+      <Video />
+      <DictationForm />
+      <WorkBookCardList />
+      <div>gpt 작문연습</div>
     </FormProviderWrapper>
   );
 };
