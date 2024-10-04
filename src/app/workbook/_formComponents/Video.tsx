@@ -64,11 +64,19 @@ const Video = () => {
         />
       </div>
 
-      <div>
+      <div
+        className={`transition-opacity duration-300 ${
+          renderVideoUrl ? "opacity-100" : "opacity-0 hidden"
+        }`}
+      >
         <iframe
-          width="600"
-          height="400"
-          src={`https://www.youtube.com/embed/${renderVideoUrl}`} // 유튜브 embed URL로 변경
+          width="100%"
+          height="600"
+          src={
+            renderVideoUrl
+              ? `https://www.youtube.com/embed/${renderVideoUrl}`
+              : ""
+          }
           title="YouTube video player"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowFullScreen

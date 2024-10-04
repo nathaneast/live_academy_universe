@@ -23,7 +23,7 @@ const FormProviderWrapper = ({
 
   return (
     <FormProvider {...methods}>
-      <div>{children}</div>
+      {children}
     </FormProvider>
   );
 };
