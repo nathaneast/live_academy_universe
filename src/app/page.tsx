@@ -21,6 +21,7 @@ export default function Home() {
           <Button>워크북 생성</Button>
         </Link>
       </section>
+      {/* TODO: 임시로 목록 렌더링함. 추후 컴포넌트 분리필요 */}
       <main className="grid grid-cols-2 lg:grid-cols-4 md:grid-cols-3 gap-2 pt-6">
         {[...Array(6)].map((_, index) => (
           <Card key={index}>

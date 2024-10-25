@@ -2,6 +2,8 @@
 
 import Image from "next/image";
 import { useFormContext, useFieldArray } from "react-hook-form";
+import { Button } from "@/components/ui/button";
+import { Textarea } from "@/components/ui/textarea";
 
 interface workBookCard {
   imagePath: string;
@@ -22,18 +24,18 @@ const WorkBookCardList = () => {
   return (
     <div>
       {fields.map((field, index) => (
-        <div key={field.id}>
+        <div key={field.id} className="border border-black">
           {/* TODO: UI X 아이콘 넣기 */}
-          <button type="button" onClick={() => remove(index)}>
+          {/* <Button type="button" onClick={() => remove(index)}>
             삭제
-          </button>
+          </Button> */}
           <Image
             // src={`workBookCards.${index}.imagePath`}
             alt="워크북 카드 이미지"
             width={200}
             height={200}
           />
-          <textarea {...register(`workBookCards.${index}.memo`)} />
+          <Textarea {...register(`workBookCards.${index}.memo`)} />
         </div>
       ))}
     </div>
