@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Image from "next/image";
 import { useFormContext } from "react-hook-form";
 
@@ -17,7 +17,6 @@ import { Input } from "@/components/ui/input";
 const Video = () => {
   const { control, register, getValues } = useFormContext();
   const [renderVideoUrl, setRenderVideoUrl] = useState("");
-  const [capturedImageUrl, setCapturedImageUrl] = useState<string | null>(null);
 
   const addRenderVideoUrl = () => {
     const videoUrl = getValues("videoUrl");
@@ -37,24 +36,6 @@ const Video = () => {
       alert("유효한 비디오 URL이 아닙니다.");
     }
   };
-
-  const captureImage = async () => {
-    try {
-      const response = await fetch("/api/youtube");
-
-      // 응답 상태 확인
-      if (!response.ok) {
-        throw new Error(`HTTP 오류! 상태: ${response.status}`);
-      }
-
-      const data = await response.json();
-      console.log(response, data, "response, data"); // API 응답 메시지 출력
-    } catch (error) {
-      console.error("API 호출 중 오류 발생:", error);
-    }
-  };
-
-  // console.log(capturedImageUrl, "capturedImageUrl");
 
   return (
     <section className="flex flex-col gap-4">
@@ -103,22 +84,6 @@ const Video = () => {
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowFullScreen
         />
-
-        <div className="flex justify-center">
-          <Button className="mt-1" onClick={captureImage}>
-            이미지 생성
-          </Button>
-        </div>
-
-        {capturedImageUrl && (
-          <div className="flex justify-center mt-4">
-            <Image
-              src={capturedImageUrl}
-              alt="Captured"
-              className="max-w-full h-auto"
-            />
-          </div>
-        )}
       </div>
     </section>
   );
