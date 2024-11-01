@@ -1,7 +1,7 @@
 import FormProviderWrapper from "./_store/FormProviderWrapper";
 import Video from "./_formComponents/Video";
 import DictationForm from "./_formComponents/DictationForm";
-import WorkBookCardList from "./_formComponents/WorkBookCardList";
+import WorkBookCardList from "./_formComponents/(WorkBookCardList)";
 
 interface WorkbookPageProps {
   searchParams: {
