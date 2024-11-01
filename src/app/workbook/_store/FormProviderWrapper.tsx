@@ -9,7 +9,7 @@ type FormProviderWrapperProps = {
 };
 
 const defaultValues_mock = {
-  workBookCards: [{ imagePath: "mock_image_1", memo: "첫 번째 카드 메모" }],
+  // workBookCards: [{ imagePath: "mock_image_1", memo: "첫 번째 카드 메모" }],
 };
 
 const FormProviderWrapper = ({

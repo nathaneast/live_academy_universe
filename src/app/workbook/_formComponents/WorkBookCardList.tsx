@@ -11,7 +11,7 @@ interface workBookCard {
 }
 
 const WorkBookCardList = () => {
-  const { control, register } = useFormContext<{
+  const { control, register, getValues } = useFormContext<{
     workBookCards: workBookCard[];
   }>();
   const { fields, remove } = useFieldArray({
@@ -22,18 +22,19 @@ const WorkBookCardList = () => {
   //   console.log(fields, " fields");
 
   return (
-    <div>
+    <div className="flex flex-col gap-4">
       {fields.map((field, index) => (
-        <div key={field.id} className="border border-black">
+        <div key={field.id} className="flex flex-col gap-2 border border-black">
           {/* TODO: UI X 아이콘 넣기 */}
           {/* <Button type="button" onClick={() => remove(index)}>
             삭제
           </Button> */}
           <Image
-            // src={`workBookCards.${index}.imagePath`}
+            src={getValues(`workBookCards.${index}.imagePath`)}
             alt="워크북 카드 이미지"
-            width={200}
-            height={200}
+            layout="responsive"
+            width={100}
+            height={100}
           />
           <Textarea {...register(`workBookCards.${index}.memo`)} />
         </div>
