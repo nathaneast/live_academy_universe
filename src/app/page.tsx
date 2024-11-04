@@ -22,6 +22,8 @@ export default function Home() {
         </Link>
       </section>
       {/* TODO: 임시로 목록 렌더링함. 추후 컴포넌트 분리필요 */}
+      {/* TODO: 썸네일, 제목만 렌더링 하도록 변경 */}
+      {/* 이미 있는 영상인 경우엔 막아놓기 */}
       <main className="grid grid-cols-2 lg:grid-cols-4 md:grid-cols-3 gap-2 pt-6">
         {[...Array(6)].map((_, index) => (
           <Card key={index}>

@@ -24,10 +24,9 @@ const WorkBookCardList = () => {
         <WorkBookCard
           key={field.id}
           id={field.id}
-          index={index}
           imagePath={getValues(`workBookCards.${index}.imagePath`)}
           memoRegister={() => register(`workBookCards.${index}.memo`)}
-          deleteCard={remove}
+          deleteCard={() => remove(index)}
         />
       ))}
     </div>

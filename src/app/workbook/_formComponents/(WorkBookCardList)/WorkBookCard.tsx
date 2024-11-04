@@ -6,27 +6,24 @@ import useTextArea from "@/components/hooks/useTextArea";
 
 interface Props {
   id: string;
-  index: number;
   imagePath: string;
   memoRegister: () => any;
-  deleteCard: (index: number) => void;
+  deleteCard: () => void;
 }
 
-const WorkBookCard = ({
-  id,
-  index,
-  imagePath,
-  memoRegister,
-  deleteCard,
-}: Props) => {
+const WorkBookCard = ({ id, imagePath, memoRegister, deleteCard }: Props) => {
   const { textareaRef, handleInputAutoHeight } = useTextArea();
 
   return (
     <div key={id} className="flex flex-col gap-2 border border-black">
-      {/* TODO: UI X 아이콘 넣기 */}
-      {/* <Button type="button" onClick={() => remove(index)}>
-            삭제
-          </Button> */}
+      <div className="relative">
+        <span
+          onClick={deleteCard}
+          className="absolute top-4 right-4 cursor-pointer text-xl"
+        >
+          ❌
+        </span>
+      </div>
       <Image
         src={imagePath}
         alt="워크북 카드 이미지"
