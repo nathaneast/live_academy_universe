@@ -1,3 +1,5 @@
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+
 import FormProviderWrapper from "./_store/FormProviderWrapper";
 import Video from "./_formComponents/Video";
 import DictationForm from "./_formComponents/DictationForm";
@@ -27,9 +29,27 @@ const WorkbookPage = ({ searchParams }: WorkbookPageProps) => {
     <FormProviderWrapper defaultValues={{}}>
       <div className="flex flex-col gap-2">
         <Video />
-        <DictationForm />
-        <WorkBookCardList />
-        <div>gpt 작문연습</div>
+
+        <Tabs defaultValue="dictation">
+          <TabsList>
+            <TabsTrigger value="dictation">dictation</TabsTrigger>
+            <TabsTrigger value="workBookCardList">workBookCardList</TabsTrigger>
+            <TabsTrigger value="account">Account</TabsTrigger>
+          </TabsList>
+
+          <TabsContent value="dictation">
+            {/* 받아쓰기, 예문 작문, 피드백 */}
+            <DictationForm />
+          </TabsContent>
+          <TabsContent value="workBookCardList">
+            {/* Past 컴포넌트 분리, 삽입 */}
+            <WorkBookCardList />
+          </TabsContent>
+          <TabsContent value="account">
+            {/* 작문연습 */}
+            account
+          </TabsContent>
+        </Tabs>
       </div>
     </FormProviderWrapper>
   );

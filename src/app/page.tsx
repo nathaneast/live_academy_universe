@@ -21,6 +21,7 @@ export default function Home() {
           <Button>워크북 생성</Button>
         </Link>
       </section>
+
       {/* TODO: 임시로 목록 렌더링함. 추후 컴포넌트 분리필요 */}
       {/* TODO: 썸네일, 제목만 렌더링 하도록 변경 */}
       {/* 이미 있는 영상인 경우엔 막아놓기 */}
