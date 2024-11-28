@@ -2,7 +2,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 import FormProviderWrapper from "./_store/FormProviderWrapper";
 import Video from "./_formComponents/Video";
-import DictationForm from "./_formComponents/DictationForm";
+import SelfDictationBoard from "./_formComponents/SelfDictationBoard";
 import WorkBookCardList from "./_formComponents/(WorkBookCardList)";
 
 interface WorkbookPageProps {
@@ -39,12 +39,14 @@ const WorkbookPage = ({ searchParams }: WorkbookPageProps) => {
 
           <TabsContent value="dictation">
             {/* 받아쓰기, 예문 작문, 피드백 */}
-            <DictationForm />
+            <SelfDictationBoard />
           </TabsContent>
+
           <TabsContent value="workBookCardList">
             {/* Past 컴포넌트 분리, 삽입 */}
             <WorkBookCardList />
           </TabsContent>
+          
           <TabsContent value="account">
             {/* 작문연습 */}
             account
