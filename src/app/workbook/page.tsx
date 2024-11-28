@@ -4,6 +4,7 @@ import FormProviderWrapper from "./_store/FormProviderWrapper";
 import Video from "./_formComponents/Video";
 import SelfDictationBoard from "./_formComponents/SelfDictationBoard";
 import WorkBookCardList from "./_formComponents/(WorkBookCardList)";
+import Composition from "./_formComponents/Composition";
 
 interface WorkbookPageProps {
   searchParams: {
@@ -34,22 +35,19 @@ const WorkbookPage = ({ searchParams }: WorkbookPageProps) => {
           <TabsList>
             <TabsTrigger value="dictation">dictation</TabsTrigger>
             <TabsTrigger value="workBookCardList">workBookCardList</TabsTrigger>
-            <TabsTrigger value="account">Account</TabsTrigger>
+            <TabsTrigger value="composition">Composition</TabsTrigger>
           </TabsList>
 
           <TabsContent value="dictation">
-            {/* 받아쓰기, 예문 작문, 피드백 */}
             <SelfDictationBoard />
           </TabsContent>
 
           <TabsContent value="workBookCardList">
-            {/* Past 컴포넌트 분리, 삽입 */}
             <WorkBookCardList />
           </TabsContent>
-          
-          <TabsContent value="account">
-            {/* 작문연습 */}
-            account
+
+          <TabsContent value="composition">
+            <Composition />
           </TabsContent>
         </Tabs>
       </div>
